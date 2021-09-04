@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource{
     @IBOutlet weak var Result: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
+    var selectedCountry:String?
 
     var countries = [String]()
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class ViewController: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSou
     }
 
     @IBAction func selectButton(_ sender: Any) {
+        print(selectedCountry!)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -34,6 +36,7 @@ class ViewController: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSou
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         Result.text = countries[row]
+        selectedCountry = countries[row]
     }
 }
 
